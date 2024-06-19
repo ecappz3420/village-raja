@@ -1,13 +1,13 @@
 const checkAccessTime = ()=>{
   const now = new Date();
   const currentHour = now.getHours();
+  const weekDay = now.getDay();
   let accessAllowed;
-  if (currentHour >= 18 && currentHour <= 24 || currentHour >= 0 && currentHour <= 10 ) {
-    console.log(currentHour);
+  if (currentHour >= 18 && currentHour <= 24 || currentHour >= 0 && currentHour <= 8 && weekDay != 2 && weekDay != 3 && weekDay != 6) {
     accessAllowed = true; 
 }
 if (!accessAllowed) {
-    document.body.innerHTML = "<div class='text-center'><h3 class='fw-bold'>Access Denied</h3><p>This page is only accessible from 6 PM to 9 AM.</p></div>";
+    document.body.innerHTML = "<div class='text-center'><h3 class='fw-bold'>Access Denied</h3><p>This page is only accessible only on Sunday, Monday, Thursday and Friday from 6PM to 9AM</p></div>";
 }
 
 }
@@ -95,7 +95,8 @@ ZOHO.CREATOR.init()
     const products = async () => {
       config = {
         appName: "village-raja-order-management",
-        reportName: "All_Products"
+        reportName: "All_Products",
+        criteria: `Category != 162081000003363056`
       }
       try {
         const productsArr = await ZOHO.CREATOR.API.getAllRecords(config);
@@ -135,7 +136,6 @@ ZOHO.CREATOR.init()
                  </div>
                </div>
              </div>`;
-
 
         }
         const card_group = document.querySelector("#product-card");
@@ -545,6 +545,7 @@ ZOHO.CREATOR.init()
       config = {
         appName: "village-raja-order-management",
         reportName: "All_Categories",
+        criteria: `ID != 162081000003363056`
       }
       try {
         const category_response = await ZOHO.CREATOR.API.getAllRecords(config);
