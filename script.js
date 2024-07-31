@@ -4,7 +4,7 @@ const checkAccessTime = ()=>{
   const weekDay = now.getDay();
   console.log(currentHour, weekDay);
   let accessAllowed;
-  if (weekDay === 0 && currentHour >=18 && currentHour <= 23 || weekDay === 1 && currentHour >= 0 && currentHour <= 8 || weekDay === 1 && currentHour >= 18 && currentHour <= 23 || weekDay === 2 && currentHour >= 0 && currentHour <= 8 || weekDay === 4 && currentHour >= 18 && currentHour <=23 || weekDay === 5 && currentHour >= 0 && currentHour <= 8 || weekDay === 5 && currentHour >= 18 && currentHour <= 23 || weekDay === 6 && currentHour >= 0 && currentHour <= 8) {
+  if (weekDay === 0 && currentHour >=18 && currentHour <= 23 || weekDay === 1 && currentHour >= 0 && currentHour <= 8 || weekDay === 1 && currentHour >= 18 && currentHour <= 23 || weekDay === 2 && currentHour >= 0 && currentHour <= 8 || weekDay === 5 && currentHour >= 18 && currentHour <= 23 || weekDay === 6 && currentHour >= 0 && currentHour <= 8 ||weekDay == 6 && currentHour >= 18 && currentHour <= 23 || weekDay === 7 && currentHour >= 0 && currentHour <= 8) {
     accessAllowed = true; 
 }
 if (!accessAllowed) {
